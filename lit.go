@@ -62,8 +62,8 @@ func (d *Document) ReadAndParse() []error {
 	return nil
 }
 
-// Render generates information for syntax highlighting of the code and formats comments in a more readable way.
-func (d *Document) Render() {
+// Process generates information for syntax highlighting of the code and formats comments in a more readable way.
+func (d *Document) Process() {
 	for i := range d.sections {
 		d.sections[i].renderedCode = bytes.TrimSpace(highlight(d.src, d.sections[i].code))
 		d.sections[i].renderedComments = bytes.TrimSpace(formatComments(d.sections[i].comments))
