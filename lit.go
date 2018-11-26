@@ -8,6 +8,7 @@ import (
 	"io/ioutil"
 	"path/filepath"
 	"strings"
+	"text/template"
 )
 
 type section struct {
@@ -81,7 +82,7 @@ func formatComments(chunks []scanChunk) []byte {
 }
 
 // Write the document to the writer `w`.
-func (d *Document) Write(w io.Writer) {
+func (d *Document) Write(templ *template.Template, w io.Writer) {
 	type sect struct {
 		Code     string
 		Comments string
@@ -99,5 +100,5 @@ func (d *Document) Write(w io.Writer) {
 			Comments: string(s.renderedComments[:]),
 		})
 	}
-	sideBySideTempl.Execute(w, dt)
+	templ.Execute(w, dt)
 }

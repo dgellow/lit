@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"flag"
 	"fmt"
 	"io"
@@ -9,7 +10,10 @@ import (
 	"github.com/dgellow/lit"
 )
 
-var flagInputFile = flag.String("input", "stdin", "input file")
+var (
+	flagInputFile = flag.String("input", "stdin", "input file")
+	flagEmbedded  = flag.Bool("embedded", false, "generate embeddable HTML")
+)
 
 func main() {
 	flag.Parse()
@@ -36,5 +40,14 @@ func main() {
 		os.Exit(2)
 	}
 	doc.Process()
-	doc.Write(os.Stdout)
+
+	var b bytes.Buffer
+	doc.Write(lit.SideBySideTempl, &b)
+
+	if *flagEmbedded {
+		os.Stdout.Write(b.Bytes())
+		return
+	}
+
+	lit.DocumentTempl.Execute(os.Stdout, b.Bytes())
 }
