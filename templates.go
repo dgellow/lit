@@ -9,22 +9,50 @@ var (
 			<head>
 				<meta charset="utf-8">
 				<style>
+					body {
+						margin: 0;
+						padding: 0;
+					}
+
+					#content {
+						max-width: 1600px;
+						margin: auto;
+					}
+
+					.section {
+						display: flex;
+						flex-direction: column;
+					}
+					@media (min-width: 900px) {
+						.section {flex-direction: row}
+					}
+
 					.section .comments, .section .code {
-						display: inline-block;
-						padding: 20px;
+						padding-left: 20px;
+						padding-right: 20px;
+						padding-top: 40px;
+						padding-bottom: 40px;
 						box-sizing: border-box;
 						margin: 0;
 					}
 					.section .comments {
-						width: 44%;
-						border-bottom: 1px solid grey;
+						padding-right: 80px;
+						padding-left: 80px;
+						border-bottom: 1px solid #f2f2f2;
+						font-family: "Helvetica Neue", sans-serif;
+						text-align: justify;
 					}
 					.section .code {
-						width: 55%;
 						color: #dedede;
 						background-color: #122;
-						font-family: monospace;
+						font-family: "Menlo", monospace;
+						overflow-x: scroll;
 					}
+					@media (min-width: 900px) {
+						.section .comments {width: 44%}
+						.section .code {width: 55%}
+					}
+
 					.chunk {
 						display: inline;
 					}
