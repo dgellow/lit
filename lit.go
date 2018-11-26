@@ -6,6 +6,7 @@ import (
 	"go/token"
 	"io"
 	"io/ioutil"
+	"path/filepath"
 	"strings"
 )
 
@@ -86,9 +87,12 @@ func (d *Document) Write(w io.Writer) {
 		Comments string
 	}
 	type data struct {
+		Filename string
 		Sections []sect
 	}
-	var dt data
+	dt := data{
+		Filename: strings.ToUpper(filepath.Clean(d.filename)),
+	}
 	for _, s := range d.sections {
 		dt.Sections = append(dt.Sections, sect{
 			Code:     string(s.renderedCode[:]),

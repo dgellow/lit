@@ -14,9 +14,22 @@ var (
 						padding: 0;
 					}
 
+					h1 {
+						padding-left: 40px;
+						padding-right: 40px;
+						text-align: center;
+						box-sizing: border-box;
+						font-family: "Copperplate", serif;
+						font-weight: 100;
+					}
+					@media (min-width: 900px) {
+						h1 {width: 44%}
+					}
+
 					#content {
 						max-width: 1600px;
 						margin: auto;
+						padding-top: 40px;
 					}
 
 					.section {
@@ -73,6 +86,8 @@ var (
 			</head>
 			<body>
 				<div id="content">
+					<h1>{{.Filename}}</h1>
+					<p></p>
 					{{range .Sections}}
 					<div class="section">
 						<div class="comments">{{.Comments}}</div>
