@@ -25,12 +25,17 @@ var (
 	#content-lit h1 {
 		padding-left: 40px;
 		padding-right: 40px;
+		padding-top: 20px;
+		padding-bottom: 20px;
 		text-align: center;
 		box-sizing: border-box;
 		font-family: "Copperplate", serif;
 		font-weight: 100;
 		position: sticky;
 		top: 0;
+		margin: 0;
+		background-color: white;
+		box-shadow: 0 6px 12px -13px black;
 	}
 	@media (min-width: 900px) {
 		#content-lit h1 {width: 44%}
