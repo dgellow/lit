@@ -1,3 +1,3 @@
-# Literate Go
+# Literate Go [![Build Status](https://travis-ci.org/dgellow/lit.svg?branch=master)](https://travis-ci.org/dgellow/lit) [![GoDoc](https://godoc.org/github.com/dgellow/lit?status.svg)](https://godoc.org/github.com/dgellow/lit) [![Go Report Card](https://goreportcard.com/badge/github.com/dgellow/lit)](https://goreportcard.com/report/github.com/dgellow/lit)
 
 Convert source code into readable document.
