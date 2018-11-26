@@ -105,11 +105,7 @@ var (
 	<div class="section">
 		<div class="comments">{{.Comments}}</div>
 		<div class="code">
-			<pre>
-				<code>
-					{{.Code}}
-				</code>
-			</pre>
+			<pre><code>{{.Code}}</code></pre>
 		</div>
 	</div>
 	{{end}}
