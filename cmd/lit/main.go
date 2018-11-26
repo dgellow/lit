@@ -12,7 +12,7 @@ import (
 
 var (
 	flagInputFile = flag.String("input", "stdin", "input file")
-	flagEmbedded  = flag.Bool("embedded", false, "generate embeddable HTML")
+	flagEmbedded  = flag.Bool("embedded", false, "if used, generate embeddable HTML instead of full document")
 )
 
 func main() {
