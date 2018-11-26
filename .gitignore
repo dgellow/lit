@@ -1,2 +1,3 @@
 cmd/lit/lit
 .vscode
+*.html

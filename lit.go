@@ -73,7 +73,8 @@ func (d *Document) Process() {
 func formatComments(chunks []scanChunk) []byte {
 	var b bytes.Buffer
 	for _, c := range chunks {
-		b.WriteString(strings.TrimSpace(c.literal) + " ")
+		s := strings.Replace(c.literal, "//", "", 1)
+		b.WriteString(strings.TrimSpace(s) + " ")
 	}
 	return b.Bytes()
 }
